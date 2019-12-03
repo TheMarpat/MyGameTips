@@ -17,6 +17,7 @@ export class DetallePage implements OnInit {
   };
 
   idConsulta = null;
+  editando = true;
   
   constructor( private firestoreService: FirestoreService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.idConsulta = this.activatedRoute.snapshot.paramMap.get("id");

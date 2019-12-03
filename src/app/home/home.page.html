@@ -6,23 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <h1>Lista de consejos:</h1>
-    <ion-item *ngFor="let documentConsejo of arrayColeccionConsejos" (click)="navigateToDetalle(documentConsejo)">
-      <ion-grid>
-        <ion-card>
-          <ion-card-content>
-            <h2>{{documentConsejo.data.titulo}}</h2>
-            <p>{{documentConsejo.data.juego}}</p>
-            <p>{{documentConsejo.data.texto}}</p>
-            <p>{{documentConsejo.data.plataforma}}</p>
-          </ion-card-content>
-        </ion-card>
-      </ion-grid>
-    </ion-item>
-  </ion-list>
-  <div *ngIf="insertando">
+<div *ngIf="insertando">
       <ion-item>
           <ion-label>Título</ion-label>
           <ion-input [(ngModel)]="consejoEditando.titulo"></ion-input>
@@ -44,7 +28,31 @@
             <ion-select-option value="Nintendo Switch">Nintendo Switch</ion-select-option>
           </ion-select>
         </ion-item>
-          <ion-button (click)="clicBotonInsertar()">Insertar consejo</ion-button>
+        <ion-item>
+          <ion-button color = "primary" (click)="clicBotonInsertar()">Insertar consejo</ion-button>
+          <ion-button (click)="insertando = false">Cancelar</ion-button>
+        </ion-item>
+          
   </div>
-    <ion-button *ngIf="!insertando" id = "bot" (click)="nuevoConsejo()">Nuevo Consejo</ion-button>
+
+<ion-content>
+  <ion-list>
+    <ion-item><h1>Lista de consejos:</h1></ion-item>
+    <ion-item *ngFor="let documentConsejo of arrayColeccionConsejos" (click)="navigateToDetalle(documentConsejo)">
+      <ion-grid>
+        <ion-card>
+          <ion-card-content>
+            <h2>{{documentConsejo.data.titulo}}</h2>
+            <p>{{documentConsejo.data.juego}}</p>
+            <p>{{documentConsejo.data.texto}}</p>
+            <p>{{documentConsejo.data.plataforma}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+  
+  <ion-fab>
+    <ion-fab-button *ngIf="!insertando" id = "bot" (click)="nuevoConsejo()">+</ion-fab-button>
+  </ion-fab>
 </ion-content>

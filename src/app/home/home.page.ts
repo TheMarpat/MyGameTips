@@ -11,7 +11,9 @@ import { Component, OnInit } from "@angular/core";
 
 
 export class HomePage {
-
+  
+  consejoEditando: Consejo;  
+  idConsejoSelec: string;
   insertando = false;
   arrayColeccionConsejos: any = [{
     id: "",
@@ -37,8 +39,7 @@ export class HomePage {
     this.obtenerListaConsejos();
   }
 
-  consejoEditando: Consejo;  
-  idConsejoSelec: string;
+  
 
   selecConsejo(consejoSelec) {
     console.log("Consejo seleccionado : ");

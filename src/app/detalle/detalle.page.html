@@ -9,7 +9,8 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-content>
+<ion-content >
+  <div *ngIf="editando">
     <ion-item>
         <ion-label>Título</ion-label>
         <ion-input [(ngModel)]="document.data.titulo"></ion-input>
@@ -31,15 +32,17 @@
           <ion-select-option value="Nintendo Switch">Nintendo Switch</ion-select-option>
         </ion-select>
       </ion-item>
-        <ion-button (click)="clicBotonInsertar()">Añadir consejo</ion-button>
-        <ion-button (click)="clicBotonModificar()">Modificar consejo</ion-button>
-        <ion-button (click)="clicBotonBorrar()">Borrar consejo</ion-button>
+        <ion-button color="primary" (click)="clicBotonInsertar()">Añadir consejo</ion-button>
+        <ion-button color="warning" (click)="clicBotonModificar()">Modificar consejo</ion-button>
+        <ion-button color="danger" (click)="navigateToHome()">Cancelar</ion-button>
+  </div>
   <ion-card>
     <ion-card-content>
       <h2>{{document.data.titulo}}</h2>
       <p>{{document.data.juego}}</p>
       <p>{{document.data.texto}}</p>
       <p>{{document.data.plataforma}}</p>
+      
     </ion-card-content>
   </ion-card>
 </ion-content>
