@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      My game tips
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <h1>Lista de consejos:</h1>
+    <ion-item *ngFor="let documentConsejo of arrayColeccionConsejos" (click)="navigateToDetalle(documentConsejo)">
+      <ion-grid>
+        <ion-card>
+          <ion-card-content>
+            <h2>{{documentConsejo.data.titulo}}</h2>
+            <p>{{documentConsejo.data.juego}}</p>
+            <p>{{documentConsejo.data.texto}}</p>
+            <p>{{documentConsejo.data.plataforma}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="insertando">
+      <ion-item>
+          <ion-label>Título</ion-label>
+          <ion-input [(ngModel)]="consejoEditando.titulo"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Juego</ion-label>
+          <ion-input [(ngModel)]="consejoEditando.juego"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Texto</ion-label>
+          <ion-input [(ngModel)]="consejoEditando.texto"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Plataformas</ion-label>
+          <ion-select [(ngModel)]="consejoEditando.plataforma" multiple>
+            <ion-select-option value="PC">PC</ion-select-option>
+            <ion-select-option value="Playstation 4">Playstation 4</ion-select-option>
+            <ion-select-option value="Xbox One">Xbox One</ion-select-option>
+            <ion-select-option value="Nintendo Switch">Nintendo Switch</ion-select-option>
+          </ion-select>
+        </ion-item>
+          <ion-button (click)="clicBotonInsertar()">Insertar consejo</ion-button>
+  </div>
+    <ion-button *ngIf="!insertando" id = "bot" (click)="nuevoConsejo()">Nuevo Consejo</ion-button>
+</ion-content>

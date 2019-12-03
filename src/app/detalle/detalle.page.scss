@@ -1,0 +1,40 @@
+$sm: 540px;
+$md:720px;
+$lg:1080px;
+
+$rojo:rgb(224, 25, 25);
+$rojoPalido:rgb(224, 56, 56);
+$grisClaro:rgb(212, 212, 212);
+$gris:rgb(120, 120, 120);
+$grisOscuro:rgb(46, 46, 46);
+
+ion-header{
+    --ion-background-color:rgb(224, 25, 25);
+    
+    ion-title {
+        --ion-font-size: 20px;
+        color: white;
+        text-align: justify;
+        }
+}
+
+ion-content {
+    --ion-background-color:rgb(46, 46, 46);
+}
+ion-item{
+        --ion-background-color:rgb(120, 120, 120);
+        color:black;
+        }
+        
+        ion-card-content{
+          background-color:rgb(212, 212, 212);
+          color:black;
+        }
+img{
+    align: center;
+    width:90%;
+    margin:auto;
+    margin-top:10%;
+    margin-bottom:10%;
+}
+
